@@ -1,0 +1,56 @@
+{
+    "type": "object",
+    "properties": {
+        "feedId": {
+            "required": true,
+            "type": "string"
+        },
+        "includeDetails": {
+            "required": false,
+            "type": "string",
+            "default": "false"
+        },
+        "offset": {
+            "required": false,
+            "type": "string",
+            "default": "0"
+        },
+        "limit": {
+            "required": false,
+            "type": "string",
+            "default": "50"
+        },
+        "WM_CONSUMER_CHANNEL_TYPE": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "SWAGGER_CHANNEL_TYPE"
+            ],
+            "default": "SWAGGER_CHANNEL_TYPE"
+        },
+        "WM_CONSUMER_ID": {
+            "required": true,
+            "type": "string"
+        },
+        "WM_SEC_TIMESTAMP": {
+            "required": true,
+            "type": "string",
+            "default": "Auto populated"
+        },
+        "WM_SEC_AUTH_SIGNATURE": {
+            "required": true,
+            "type": "string",
+            "default": "Auto populated"
+        },
+        "WM_SVC_NAME": {
+            "required": true,
+            "type": "string",
+            "default": "Walmart Marketplace"
+        },
+        "WM_QOS_CORRELATION_ID": {
+            "required": true,
+            "type": "string",
+            "default": "123456abcdef"
+        }
+    }
+}

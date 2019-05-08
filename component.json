@@ -1,0 +1,68 @@
+{
+    "title": "Price",
+    "description": "Please make sure you use the correct version of the APIs for your use case. To find out the appropriate version, go to the API Docs  drop down on the menu.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/walmart.com/price/3.0.1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://developer.walmart.com/priceProxy/price-api-doc-app/rest",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "updatePrice": {
+            "main": "./lib/actions/updatePrice.js",
+            "title": "Upload a price feed",
+            "description": "You can upload a price feed. If the feed successfully processed, it returns a feed ID. Use the returned feed ID to retrieve a feed status. You need Your Consumer ID and the private key to upload the feed",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updatePrice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getFeedsStatus": {
+            "main": "./lib/actions/getFeedsStatus.js",
+            "title": "Get status of a price feed",
+            "description": "You can display the status of an item price within a feed. Use the feed ID returned from the upload a price feed API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getFeedsStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
